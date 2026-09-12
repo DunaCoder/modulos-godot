@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://deeynkebjc22x"]
 
 [ext_resource type="Script" uid="uid://dswf5uds3uwym" path="res://modulo/niveles/mapa1/mapa_1.gd" id="1_hatu1"]
-[ext_resource type="PackedScene" uid="uid://kst2pgpr8ue8" path="res://modulo/personajes/jugador/player.tscn" id="2_domfn"]
+[ext_resource type="PackedScene" uid="uid://b16hu3kktnlmb" path="res://modulo/personajes/FPSjugador/player.tscn" id="2_domfn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7pacf"]
 
@@ -58,5 +58,5 @@ use_collision = true
 size = Vector3(61.77594, 1, 70.657166)
 material = SubResource("ORMMaterial3D_4hgir")
 
-[node name="player" parent="." unique_id=1100839650 instance=ExtResource("2_domfn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52832735, 0)
+[node name="player" parent="." unique_id=1639254239 instance=ExtResource("2_domfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8190331, 0)

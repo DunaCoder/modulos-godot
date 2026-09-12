@@ -1,0 +1,39 @@
+[gd_resource type="Shader" format=3 uid="uid://dfx141mfe8iaf"]
+
+[sub_resource type="GDScript" id="GDScript_mqaei"]
+
+[resource]
+code = "shader_type spatial; // Corregido: tipo correcto para 3D con espacio
+
+// Propiedades que podrás cambiar desde el inspector a la derecha
+uniform vec3 color_suelo : source_color = vec3(0.15, 0.15, 0.15); // Gris oscuro
+uniform vec3 color_linea : source_color = vec3(0.0, 0.6, 1.0);     // Azul brillante
+uniform float tamano_cuadro = 1.0;  // Cada cuadro mide 1 metro
+uniform float grosor_linea = 0.02;  // Grosor de la línea de la cuadrícula
+
+varying vec3 posicion_mundo;
+
+void vertex() {
+	// Capturamos la posición real en el mundo para que no se estire la cuadrícula
+	posicion_mundo = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+
+void fragment() {
+	// Calculamos la posición local dentro de cada cuadro
+	vec2 coord = posicion_mundo.xz / tamano_cuadro;
+	vec2 grid = abs(fract(coord - 0.5) - 0.5) / (grosor_linea / tamano_cuadro);
+	
+	// Tomamos el valor más bajo para definir la línea
+	float linea = min(grid.x, grid.y);
+	
+	// Creamos un corte limpio para que las líneas no se vean borrosas
+	float mascara_linea = 1.0 - smoothstep(0.0, 1.0, linea);
+	
+	// Mezclamos el color del suelo con el de la línea usando la máscara
+	ALBEDO = mix(color_suelo, color_linea, mascara_linea);
+	
+	// Un toque de rugosidad para que no brille como espejo con el sol
+	ROUGHNESS = 0.8;
+}
+"
+script = SubResource("GDScript_mqaei")

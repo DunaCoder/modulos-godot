@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dge32fgnopi6e"]
+
+[ext_resource type="Script" uid="uid://drb02tv3cvlvq" path="res://modulo/objectos/pistola/pistola.gd" id="1_5krjw"]
+[ext_resource type="PackedScene" uid="uid://b20vmkw433h1a" path="res://materials/objects/pistola minima.glb" id="1_nrhxe"]
+
+[node name="pistola" type="Node3D" unique_id=806778588]
+transform = Transform3D(1, 0, 0, 0, 1.0229961, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_5krjw")
+
+[node name="pistola minima" parent="." unique_id=926103036 instance=ExtResource("1_nrhxe")]

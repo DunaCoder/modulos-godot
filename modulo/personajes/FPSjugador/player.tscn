@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b16hu3kktnlmb"]
+
+[ext_resource type="Script" uid="uid://4c3xjjvjs4en" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://cj7myvmevc6u4" path="res://materials/texture/crosshair.png" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://dge32fgnopi6e" path="res://pistola.tscn" id="3_hqtel"]
+[ext_resource type="Script" uid="uid://c8h58070a5wlj" path="res://camera_3d.gd" id="3_i3pqv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
+
+[node name="player" type="CharacterBody3D" unique_id=1639254239]
+script = ExtResource("1_4flbx")
+
+[node name="Neck" type="Node3D" parent="." unique_id=653423665]
+
+[node name="Camera3D" type="Camera3D" parent="Neck" unique_id=994687471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4142978, -0.18191272)
+script = ExtResource("3_i3pqv")
+
+[node name="Pistola" parent="Neck/Camera3D" unique_id=806778588 instance=ExtResource("3_hqtel")]
+transform = Transform3D(-0.99848044, 0, -0.055106994, 0, 1.0229961, 0, 0.055106994, 0, -0.99848044, 0.26323235, -2.808185, -0.29533726)
+
+[node name="HitscanRay" type="RayCast3D" parent="Neck/Camera3D" unique_id=1970548651]
+target_position = Vector3(0, 0, -200)
+
+[node name="crosshair" type="TextureRect" parent="." unique_id=712347802]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = -1
+anchor_left = 0.49305555
+anchor_top = 0.48765433
+anchor_right = 0.5069444
+anchor_bottom = 0.5123457
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-1, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_i3pqv")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=29038430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8779342, 0)
+shape = SubResource("CapsuleShape3D_sh265")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=683585319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8779342, 0)
+mesh = SubResource("CapsuleMesh_4flbx")
