@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://deeynkebjc22x"]
 
 [ext_resource type="Script" uid="uid://dswf5uds3uwym" path="res://modulo/niveles/mapa1/mapa_1.gd" id="1_hatu1"]
-[ext_resource type="PackedScene" uid="uid://b16hu3kktnlmb" path="res://modulo/personajes/FPSjugador/player.tscn" id="2_domfn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7pacf"]
 
@@ -12,7 +11,7 @@ sky_material = SubResource("ProceduralSkyMaterial_7pacf")
 background_mode = 2
 sky = SubResource("Sky_2k3q6")
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_2k3q6"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_hatu1"]
 vertices = PackedVector3Array(-81.914955, 1, 5.3353577, -8.414955, 1, 5.3353577, -8.164955, 1, 4.3353577, -6.914955, 1, -87.91464, -81.914955, 1, -87.91464, -6.664955, 1, 4.3353577, 4.585045, 1, 4.0853577, 4.585045, 1, -87.91464, 5.085045, 1, 4.3353577, 5.085045, 1, 6.3353577, 77.585045, 1, 6.3353577, 77.585045, 1, -87.91464, 3.8350449, 7, 15.835358, -2.4149551, 7, 16.335358, 4.085045, 7, 16.335358, 4.085045, 7, 5.0853577, -7.414955, 7, 5.3353577, 3.3350449, 7, 5.5853577, -3.4149551, 1, 15.085358, -1.6649551, 1, 14.835358, -1.9149551, 1, 6.5853577, -8.164955, 1, 6.5853577, -1.1649551, 1, 72.33536, -81.914955, 1, 72.33536, -3.4149551, 1, 17.085358, -1.1649551, 1, 17.335358, 5.335045, 1, 14.835358, 77.585045, 1, 15.085358, 2.8350449, 1, 14.835358, 2.8350449, 1, 6.5853577, 4.835045, 1, 17.335358, 2.8350449, 1, 17.335358, 2.8350449, 1, 72.33536, 77.585045, 1, 72.33536)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 3), PackedInt32Array(10, 9, 8), PackedInt32Array(8, 6, 10), PackedInt32Array(10, 6, 7), PackedInt32Array(10, 7, 11), PackedInt32Array(14, 13, 12), PackedInt32Array(16, 15, 17), PackedInt32Array(12, 17, 14), PackedInt32Array(14, 17, 15), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(21, 22, 1), PackedInt32Array(1, 22, 0), PackedInt32Array(0, 22, 23), PackedInt32Array(21, 18, 24), PackedInt32Array(22, 24, 25), PackedInt32Array(21, 24, 22), PackedInt32Array(27, 26, 10), PackedInt32Array(10, 26, 9), PackedInt32Array(28, 19, 29), PackedInt32Array(29, 19, 20), PackedInt32Array(32, 31, 30), PackedInt32Array(30, 26, 32), PackedInt32Array(32, 26, 27), PackedInt32Array(32, 27, 33), PackedInt32Array(25, 31, 22), PackedInt32Array(22, 31, 32)]
 
@@ -32,7 +31,7 @@ environment = SubResource("Environment_4hgir")
 transform = Transform3D(0.15864064, -0.9873364, 4.6110234e-08, -0.9520876, -0.152977, 0.2648156, -0.26146203, -0.042010557, -0.9642991, 36.4996, 143.20557, -104.6257)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=782881114]
-navigation_mesh = SubResource("NavigationMesh_2k3q6")
+navigation_mesh = SubResource("NavigationMesh_hatu1")
 
 [node name="Suelo" type="CSGBox3D" parent="NavigationRegion3D" unique_id=186207231]
 transform = Transform3D(2.5967317, 0, 0, 0, 1, 0, 0, 0, 2.2818685, -2.2071838, 0, -7.7994576)
@@ -57,6 +56,3 @@ transform = Transform3D(-0.0018266666, -1.1197225, -0.0014060275, 0.000100879304
 use_collision = true
 size = Vector3(61.77594, 1, 70.657166)
 material = SubResource("ORMMaterial3D_4hgir")
-
-[node name="player" parent="." unique_id=1639254239 instance=ExtResource("2_domfn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8190331, 0)
