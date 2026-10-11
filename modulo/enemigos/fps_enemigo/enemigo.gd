@@ -1,14 +1,14 @@
 extends CharacterBody3D
 
-@export var velocidad: float = 5.0
-@export var limite_movimientos: int = 5 
+@export var velocidad: float = 3.0
+@export var limite_movimientos: int = 15 
 var movimientos_realizados: int = 0
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 var activo: bool = false
 var tiempo_en_ruta: float = 0.0
-var max_tiempo_por_punto: float = 6.0 
+var max_tiempo_por_punto: float = 100.0 
 
 func _ready() -> void:
 	nav_agent.path_desired_distance = 1.0
