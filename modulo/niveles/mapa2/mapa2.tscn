@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cwcw21tk8e6p7"]
+
+[ext_resource type="PackedScene" uid="uid://bld5ghtc6re8o" path="res://modulo/enemigos/fps_enemigo/Enemigo.tscn" id="1_ivgvk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b0sv4"]
+
+[sub_resource type="Sky" id="Sky_ivgvk"]
+sky_material = SubResource("ProceduralSkyMaterial_b0sv4")
+
+[sub_resource type="Environment" id="Environment_4pfk2"]
+background_mode = 2
+sky = SubResource("Sky_ivgvk")
+ambient_light_source = 3
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_b0sv4"]
+vertices = PackedVector3Array(-9.5, 1, -9.5, -9.5, 1, 9.5, 9.5, 1, 9.5, 9.5, 1, -9.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ivgvk"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4pfk2"]
+size = Vector3(20, 1, 20)
+
+[node name="Node3D" type="Node3D" unique_id=986606076]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1415652586]
+environment = SubResource("Environment_4pfk2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1232653480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3030033, 4.2381516, 10.752042)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=634569255]
+navigation_mesh = SubResource("NavigationMesh_b0sv4")
+
+[node name="Enemigo" parent="NavigationRegion3D" unique_id=590669714 instance=ExtResource("1_ivgvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0497541, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=372344986]
+mesh = SubResource("BoxMesh_ivgvk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D" unique_id=390709351]
+shape = SubResource("BoxShape3D_4pfk2")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1040511448]
+transform = Transform3D(1, 0, 0, 0, 0.16885054, 0.9856417, 0, -0.9856417, 0.16885054, -0.4792347, 15.076424, 2.294685)
+current = true
+fov = 73.125
